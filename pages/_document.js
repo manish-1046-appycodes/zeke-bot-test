@@ -1,0 +1,53 @@
+import { Html, Head, Main, NextScript } from "next/document";
+
+export default function Document() {
+  return (
+    <Html>
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+          integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+          rel="stylesheet"
+          type="text/css"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+          rel="stylesheet"
+          type="text/css"
+        />
+        {/* eslint-disable-next-line @next/next/no-css-tags */}
+        <link
+          href="/build/static/css/main.2eda8ff5.css"
+          rel="stylesheet"
+          type="text/css"
+        />
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
+}
