@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </RootLayout>
       </SidebarContext>
-      <Script src="/build/static/js/main.0c036a4b.js" />
+      <Script src="/build/static/js/main.1668605a.js" />
       <chat-widget></chat-widget>
     </ThirdwebProvider>
   );

@@ -33,6 +33,56 @@ export default function Homepage() {
     }
   }, [gptResponse]);
 
+  // const generateResponse = async (question) => {
+  //   if (!question || loading) return;
+
+  //   setGptResponse("");
+  //   setChatId("");
+
+  //   const id = uuidv4();
+  //   setChatId(id);
+
+  //   setLoading(true);
+  //   setGptResponse("Zeke is answering...");
+
+  //   setChatList([...chatList, { id, question, answer: "" }]);
+
+  //   try {
+  //     const response = await fetch(
+  //       `/api/chatbot?message=${question}&resetLog=true`
+  //       // `https://zekeai.vercel.app/api/chatbot?message=${question}&resetLog=true`
+  //     );
+
+  //     if (!response.ok) {
+  //       throw new Error("Something went wrong!");
+  //     }
+
+  //     const data = await response.json();
+  //     if (!data) return;
+
+  //     const reader = data.getReader();
+  //     const decoder = new TextDecoder();
+
+  //     let done = false;
+  //     let responseString = "";
+
+  //     while (!done) {
+  //       const { value, done: readerDone } = await reader.read();
+  //       done = readerDone;
+  //       const chunkValue = decoder.decode(value);
+  //       responseString += chunkValue;
+  //       console.log("RESS : ", chunkValue)
+  //       setGptResponse(responseString);
+  //     }
+
+  //     setGptResponse(data.message?.trim());
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
   const generateResponse = async (question) => {
     if (!question || loading) return;
 
@@ -43,24 +93,41 @@ export default function Homepage() {
     setChatId(id);
 
     setLoading(true);
-    setGptResponse("Zeke is answering...");
 
     setChatList([...chatList, { id, question, answer: "" }]);
 
     try {
-      const response = await fetch(
-        `https://app.zeke.ai/api/chatbot?message=${question}&resetLog=true`
-        // `https://zekeai.vercel.app/api/chatbot?message=${question}&resetLog=true`
-      );
+      const response = await fetch("/api/chatbot", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt: question }),
+      });
 
       if (!response.ok) {
         throw new Error("Something went wrong!");
       }
 
-      const data = await response.json();
+      const data = response.body;
+      console.log("RES CHUNK Body", data);
       if (!data) return;
 
-      setGptResponse(data.message?.trim());
+      const reader = data.getReader();
+      const decoder = new TextDecoder();
+
+      let done = false;
+      let responseString = "";
+
+      while (!done) {
+        const { value, done: readerDone } = await reader.read();
+        console.log("RES CHUNK DATA ", value, " DONE ", done);
+        done = readerDone;
+        const chunkValue = decoder.decode(value);
+        responseString += chunkValue;
+        console.log("RES CHUNK ", chunkValue);
+        setGptResponse(responseString);
+      }
     } catch (error) {
       console.log(error);
     } finally {

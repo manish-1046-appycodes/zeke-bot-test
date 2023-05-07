@@ -43,6 +43,66 @@ export default function Document() {
           rel="stylesheet"
           type="text/css"
         />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff"></meta>
+
+        {/* Primary Meta Tags */}
+
+        <title>Zeke - Emergent intelligence from Hub Culture</title>
+        <meta
+          name="title"
+          content="Zeke - Emergent intelligence from Hub Culture"
+        />
+        <meta
+          name="description"
+          content="Zeke.ai was designed to provide intuitive and personalized experiences for each Hub Culture member"
+        />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.zeke.ai/" />
+        <meta
+          property="og:title"
+          content="Zeke - Emergent intelligence from Hub Culture"
+        />
+        <meta
+          property="og:description"
+          content="Zeke.ai was designed to provide intuitive and personalized experiences for each Hub Culture member"
+        />
+        <meta
+          property="og:image"
+          content="https://www.zeke.ai/20230506_125223_0000.png"
+        />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://www.zeke.ai/" />
+        <meta
+          property="twitter:title"
+          content="Zeke - Emergent intelligence from Hub Culture"
+        />
+        <meta
+          property="twitter:description"
+          content="Zeke.ai was designed to provide intuitive and personalized experiences for each Hub Culture member"
+        />
+        <meta
+          property="twitter:image"
+          content="https://www.zeke.ai/20230506_125223_0000.png"
+        ></meta>
       </Head>
       <body>
         <Main />

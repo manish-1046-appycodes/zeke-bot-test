@@ -56,7 +56,7 @@ const App = () => {
 
     try {
       const response = await fetch(
-        `https://app.zeke.ai/api/chatbot?message=${textContent}&resetLog=true`
+        `https://www.zeke.ai/api/chatbot?message=${textContent}&resetLog=true`
         // `https://zekeai.vercel.app/api/chatbot?message=${textContent}&resetLog=true`
       );
       const data = await response.json();

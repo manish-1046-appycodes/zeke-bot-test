@@ -27,22 +27,6 @@ export default async function handler(req: NextRequest) {
   return new Response(stream);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import { OpenAI } from "langchain/llms";
 // import { BufferMemory } from "langchain/memory";
 // import { PromptTemplate } from "langchain/prompts";
